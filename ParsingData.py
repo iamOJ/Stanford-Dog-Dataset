@@ -4,13 +4,15 @@ import matplotlib.pyplot as plt
 import xml.etree.ElementTree as ET
 import cv2
 
+location = '/media/jones/Documents and Data/SEDS Projects Team/'
+
 filenames = []
 par=[]
 boundboxes=[]
-mat = scipy.io.loadmat('/media/jones/Documents and Data/SEDS Projects Team/Stanford Dogs Dataset/lists/train_list.mat')
+mat = scipy.io.loadmat(location + 'Stanford Dogs Dataset/lists/train_list.mat')
 for file in mat['file_list']:
     filenames.append(
-        '/media/jones/Documents and Data/SEDS Projects Team/Stanford Dogs Dataset/Annotation/' + file[0][0][:-4])
+        location + 'Annotation/' + file[0][0][:-4])
     # print('/media/jones/Documents and Data/SEDS Projects Team/Stanford Dogs Dataset/Annotation/'+file[0][0][:-4])
 
 
