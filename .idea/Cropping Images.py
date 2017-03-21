@@ -8,18 +8,22 @@ with open('parsedData.txt','r') as ins:
         array.append(line)
 
 def cropImg(name,xMin,xMax,yMin,yMax):
+    '''
     print(name)
     print(xMin)
     print(xMax)
     print(yMin)
     print(yMax)
     '''
+    '''
+    cv2.imwrite('/media/jones/Documents and Data/SEDS Projects Team/Stanford Dogs Dataset/Images/Cropped Images/n02085620_199.jpg',img1)
+    '''
+
     img = cv2.imread(location+name)
     imgCropped = img[yMin:yMax,xMin:xMax]
-    cv2.imwrite(location+'Cropped Images/'+name,imgCropped)
-    cv2.waitKey(0) & 0xFF
-    print('File saved at' + location+'Cropped Images/'+name)
-    '''
+
+    #cv2.waitKey(0) & 0xFF
+    print(str(cv2.imwrite(str(location+'Cropped Images/'+name),imgCropped)) + name)
 
 for values in array:
     xmin = int(values.split(',')[0])
