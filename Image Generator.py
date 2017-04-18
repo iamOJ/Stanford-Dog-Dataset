@@ -19,6 +19,8 @@ datagen = ImageDataGenerator(
         zoom_range=0.2,
         horizontal_flip=True,
         fill_mode='nearest')
+
+
 for name in names:
     img = load_img(name)  # this is a PIL image
     x = img_to_array(img)  # this is a Numpy array with shape (3, 150, 150)
@@ -28,7 +30,7 @@ for name in names:
     # and saves the results to the `preview/` directory
     i = 0
     for batch in datagen.flow(x, batch_size=1,
-                              save_to_dir='preview', save_prefix='catty', save_format='jpeg'):
+                              save_to_dir='preview', save_prefix='', save_format='jpeg'):
         i += 1
         if i > 20:
             break  # otherwise the generator would loop indefinitely
