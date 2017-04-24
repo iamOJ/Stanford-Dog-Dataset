@@ -1,14 +1,14 @@
 import numpy
 import pandas
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, Conv2D, Activation, MaxPooling2D
 from keras.wrappers.scikit_learn import KerasClassifier
 from keras.utils import np_utils
 from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import KFold
 from sklearn.preprocessing import LabelEncoder
 from sklearn.pipeline import Pipeline
-
+import keras.optimizers
 
 seed = 7
 numpy.random.seed(seed)
@@ -44,4 +44,6 @@ model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Conv2D(64, (3, 3)))
 model.add(Activation('relu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
